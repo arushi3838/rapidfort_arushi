@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdf-converter-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdf-converter
+  template:
+    metadata:
+      labels:
+        app: pdf-converter
+    spec:
+      containers:
+      - name: pdf-converter
+        image: pdf-converter:latest
+        ports:
+        - containerPort: 5000
